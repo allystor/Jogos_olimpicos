@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comite</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Comite</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <a href="{{ url'competicao' }}" class="btn btn-primary">Criar nova competicao</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Telefone</th>
+                            <th>Celular</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for comite in comites %}
+                            <tr>
+                                <td>{{ comite.nome }}</td>
+                                <td>{{ comite.email }}</td>
+                                <td>{{ comite.telefone }}</td>
+                                <td>{{ comite.celular }}</td>
+                                <td>
+                                    <a href="{{ url('/comite/edit', {'id': comite.id}) }}" class="btn btn-primary">Editar</a>
+                                    <a href="{{ url('/comite/delete', {'id': comite.id}) }}" class="btn btn-danger">Excluir</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
