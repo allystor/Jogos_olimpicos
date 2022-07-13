@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'Olimpiadas.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME', 'Jogos-olimpicos'),
+        'NAME': os.environ.get('DB_NAME', 'Olimpiadas'),
         'USER': os.environ.get('DB_USER', 'postgres'),
         'PASSWORD': os.environ.get('DB_PASS', '2486'),
         'HOST': 'localhost',

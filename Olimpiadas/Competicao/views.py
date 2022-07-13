@@ -1,3 +1,4 @@
+from dataclasses import fields
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -13,15 +14,15 @@ class IndexView(generic.ListView):
         return render(request, 'index.html')
     
     def get_queryset(self):
-        return Competicao.objects.filter(data_inicio__lte=timezone.now()).order_by('data_inicio')
+        return Competicao.objects.filter(data__lte=timezone.now())
 
-class CadstroView(generic.CreateView):
+class CadastroView(generic.DetailView):
     model = Competicao
-    fields = ['nome', 'data_inicio', 'data_fim', 'descricao']
     template_name = 'cadastro.html'
     
-    def cadastro(self, request):
-        return render(request, 'cadastro.html')
+    def cadastro(request, competicao_id):
+        response = Competicao(pk=competicao_id)
+        return render(request, 'cadastro.html', {'response': response})
     
     def post(self, request):
         form = self.get_form()
