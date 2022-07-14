@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar competição</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 <body>
     <div class="container">
@@ -13,76 +14,94 @@
             <div class="form-row">
                 <div class="form-group col-md-11 control-label">
                 </div>
-                <form action="" method="POST">
-                    <div class="form-row">
-                        <div class="form-group col-md-8">
-                            <label for="formGroupExampleInput">Nome do participante </label>
-                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nome completo"
-                                required="required">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-2">
-                            <label for="exampleFormControlSelect1">Local da competição</label>
-                            <input id="dtnasc" name="horaT" placeholder="" class="form-control input-md" required="" type="date"
-                                maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()" required="required"
-                                required="required">
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="exampleFormControlSelect1">Data da competição</label>
-                            <input id="dtnasc" name="horaT" placeholder="" class="form-control input-md" required="" type="date"
-                                maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()" required="required"
-                                required="required">
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="exampleFormControlSelect1">Hora início competição</label>
-                            <input id="dtnasc" name="horaI" placeholder="00:00" class="form-control input-md" required=""
-                                type="hour" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()"
-                                required="required">
-                        </div>
-        
-                        <div class="form-group col-md-2">
-                            <label for="exampleFormControlSelect1">Fim da competição</label>
-                            <input id="dtnasc" name="dataT" placeholder="00:00" class="form-control input-md" required=""
-                                type="hour" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()"
-                                required="required">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-8">
-                            <label for="formGroupExampleInput">Local</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder=""
-                                required="required">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-5">
-                            <label for="formGroupExampleInput">Modalidade</label>
-                            <div class="col-md-">
-                                <select required id="Estado" name="Estado" class="form-control">
-                                    <option value="">Selecione</option>
-                                    <option value="RA">100m rasos</option>
-                                    <option value="LD">Lançamento Dardo</option>
-        
-                                </select>
+                <form action="{% url 'cadastrar' competicao.id %}" method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        {% for atleta in competicao.atleta_set.all %}
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <label for="formGroupExampleInput">Nome do participante </label>
+                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nome completo" name="atleta" value="{{ atleta.id }}" id="atleta{{ forloop.counter }}"
+                                    required="required">
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="formGroupExampleInput">Idade</label>
+                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Idade"
+                                    required="required">
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="formGroupExampleInput">Peso </label>
+                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="KG"
+                                    required="required">
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="formGroupExampleInput">Altura</label>
+                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Metros"
+                                    required="required">
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="formGroupExampleInput">Tempo de chegada nos 100 metros</label>
+                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Segundos"
+                                    required="required">
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="formGroupExampleInput">Distancia de lançamento de dardo</label>
+                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Metros"
+                                    required="required">
                             </div>
                         </div>
-                        <div class="form-group col-md-3">
-                            <div class="form-group col-md-14">
-                                <label for="formGroupExampleInput">Categoria</label>
+                        {% endfor %}
+                        <div class="form-row">
+                            <div class="form-group col-md-2">
+                                <label for="exampleFormControlSelect1">Data da competição</label>
+                                <input id="dtnasc" name="horaT" placeholder="" class="form-control input-md" required="" type="date"
+                                    maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()" required="required"
+                                    required="required">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="exampleFormControlSelect1">Hora início competição</label>
+                                <input id="dtnasc" name="horaI" placeholder="00:00" class="form-control input-md" required=""
+                                    type="hour" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()"
+                                    required="required">
+                            </div>
+            
+                            <div class="form-group col-md-2">
+                                <label for="exampleFormControlSelect1">Fim da competição</label>
+                                <input id="dtnasc" name="dataT" placeholder="00:00" class="form-control input-md" required=""
+                                    type="hour" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()"
+                                    required="required">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <label for="formGroupExampleInput">Local</label>
                                 <div class="col-md-">
                                     <select required id="Estado" name="Estado" class="form-control">
                                         <option value="">Selecione</option>
-                                        <option value="RA">Iniciante</option>
-                                        <option value="LD">Braaaabo</option>
-        
+                                        <option value="RA">Maracanã</option>
+                                        <option value="LD">Arena corinthians</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-5">
+                                <label for="formGroupExampleInput">Modalidade</label>
+                                <div class="col-md-">
+                                    <select required id="Estado" name="Estado" class="form-control">
+                                        <option value="">Selecione</option>
+                                        <option value="RA">100m rasos</option>
+                                        <option value="LD">Lançamento Dardo</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <input type="submit" value="Cadastrar" class="btn btn-primary">
                 </form>
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>
