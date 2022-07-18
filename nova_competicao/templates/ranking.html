@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <table>
+            <thead>
+                <tr class="table100-head">
+                <th class="column1">nome</th>
+                <th class="column2">Local</th>
+                <th class="column3">Idade</th>
+                <th class="column4">Peso</th>
+                <th class="column5">Distancia de dardo</th>
+                <th class="column6">Tempo de chegada</th>
+                </tr>
+            </thead>
+            {% for atleta in context %}
+            <tbody>
+                <tr>
+                    <td class="column1">{{atleta.nome_do_atleta}}</td>
+                    <td class="column2">{{atleta.local_da_competicao}}</td>
+                    <td class="column3">{{atleta.idade_do_atleta}}</td>
+                    <td class="column4">{{atleta.peso_do_atleta}}kg</td>
+                    <td class="column5">{{atleta.metros_de_distancia}}m</td>
+                    <td class="column6">{{atleta.tempo_de_chegada_na_primeira_prova}} segundos</td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

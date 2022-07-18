@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <title>{% block title %}{% endblock title %}</title>
+    <title>Comitê</title>
 </head>
 <body>
     <div class="container">
@@ -23,7 +23,7 @@
                 <div class="card-body"style="padding-right: 20px;">
                   <h5 class="card-title">Lançamento de Dardo.</h5>
                   <p class="card-text">Lançamento de dardo ou lançamento do dardo é uma modalidade olímpica do atletismo existente desde a Grécia Antiga.</p>
-                  <a href="#" class="btn btn-primary">Clique para saber mais</a>
+                  <a href="{% url 'ranking' %}" class="btn btn-primary">Clique para saber mais</a>
                 </div>
             </div>
             <div id="card-1" class="card" style="width: 18rem;">
