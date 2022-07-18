@@ -1,3 +1,2 @@
 venv
-py__cache__
-/py__cache__
+__pycache__
