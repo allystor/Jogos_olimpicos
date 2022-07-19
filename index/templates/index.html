@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
     <title>Comitê</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 <body>
     <div class="container">
@@ -17,7 +17,7 @@
             <div id="card-1" class="card" style="width: 18rem;">
                 <img src="https://ichef.bbci.co.uk/news/800/cpsprodpb/D48F/production/_119451445_mediaitem119451444.jpg.webp" class="card-img-top" alt="Lançamento de Dardo">
                 <div class="card-body"style="padding-right: 20px;">
-                  <h5 class="card-title">100 metros rasos</h5>
+                  <h5 class="card-title">100 Metros Rasos</h5>
                   <p class="card-text">100 metros rasos ou 100 metros é uma modalidade olímpica de corrida de velocidade no atletismo. A mais curta das distâncias disputadas em eventos ao ar livre, é também uma das mais populares</p>
                 </div>
             </div>
@@ -31,7 +31,7 @@
         </div>
         <div class="cadastro">
             <h4>Caso queira cadastrar uma nova competição clique abaixo</h4>
-            <a href="{% url 'criar_competicao' %}" class="btn btn-primary w-25" id="btn-cadastro">Cadastrar competição</a>
+            <a href="{% url 'criar_competicao' %}" class="btn btn-primary w-25" id="btn-cadastro">Criar competição</a>
         </div>
         <div class="d-flex justify-content-center">
             <div id="card-1" class="card" style="width: 18rem;">
@@ -39,7 +39,7 @@
                 <div class="card-body"style="padding-right: 20px;">
                   <h5 class="card-title">Ranking</h5>
                   <p class="card-text">Clique no botão abaixo e confira o ranking dos melhores competidores de ambas modalidades!</p>
-                  <a href="{% url 'ranking' %}" class="btn btn-primary">Clique para saber mais</a>
+                  <a href="{% url 'ranking' %}" class="btn btn-primary">Clique para ver</a>
                 </div>
             </div>
         </div>
