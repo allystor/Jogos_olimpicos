@@ -4,8 +4,8 @@ import datetime
 class Competicao(models.Model):
     
     LOCAL_CHOICES = (
-        ('1', 'Arena Corinthians'),
-        ('2','Maracanã'),
+        ('Arena Corinthians', 'Arena Corinthians'),
+        ('Arena Corinthians','Maracanã'),
     )    
 
     local_da_competicao = models.CharField(max_length=100, choices=LOCAL_CHOICES)

@@ -1,42 +1,49 @@
-{% load static %}<!DOCTYPE html>
-<html lang="en">
-
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
     <title>Comitê</title>
 </head>
 <body>
     <div class="container">
         <h1>Bem vindo a lista de competições do comitê olimpico!</h1>
-        <div class="Cadastro">
-            <h4>Caso queira cadastrar uma nova competição clique abaixo</h4>
-            <a href="{% url 'criar_competicao' %}" class="btn btn-primary" id="btn-cadastro">Cadastrar competição</a>
-        </div>
-        <div class="d-flex justify-content-center">
+        <h2>modalidades disponíveis</h2>
+        <div class="modalidades">
+            <div id="card-1" class="card" style="width: 18rem;">
+                <img src="https://ichef.bbci.co.uk/news/800/cpsprodpb/D48F/production/_119451445_mediaitem119451444.jpg.webp" class="card-img-top" alt="Lançamento de Dardo">
+                <div class="card-body"style="padding-right: 20px;">
+                  <h5 class="card-title">100 metros rasos</h5>
+                  <p class="card-text">100 metros rasos ou 100 metros é uma modalidade olímpica de corrida de velocidade no atletismo. A mais curta das distâncias disputadas em eventos ao ar livre, é também uma das mais populares</p>
+                </div>
+            </div>
             <div id="card-1" class="card" style="width: 18rem;">
                 <img src="https://atletisminterativo.weebly.com/uploads/1/4/5/3/14536042/6781601.jpg" class="card-img-top" alt="Lançamento de Dardo">
                 <div class="card-body"style="padding-right: 20px;">
                   <h5 class="card-title">Lançamento de Dardo.</h5>
                   <p class="card-text">Lançamento de dardo ou lançamento do dardo é uma modalidade olímpica do atletismo existente desde a Grécia Antiga.</p>
-                  <a href="{% url 'ranking' %}" class="btn btn-primary">Clique para saber mais</a>
                 </div>
             </div>
+        </div>
+        <div class="cadastro">
+            <h4>Caso queira cadastrar uma nova competição clique abaixo</h4>
+            <a href="{% url 'criar_competicao' %}" class="btn btn-primary w-25" id="btn-cadastro">Cadastrar competição</a>
+        </div>
+        <div class="d-flex justify-content-center">
             <div id="card-1" class="card" style="width: 18rem;">
-                <img src="https://3.bp.blogspot.com/-CjI2GUvqJQA/UdLIhOeTMhI/AAAAAAAAjeI/Pfu1Q4_xit8/s1600/100+METROS+RASOS+NO+ATLETISMO.jpg" class="card-img-top" alt="100m rasos">
-                <div class="card-body">
-                  <h5 class="card-title">100m rasos</h5>
-                  <p class="card-text">Os 100 metros nos Jogos Olímpicos de Verão são disputados desde a primeira edição do evento multiesportivo.</p>
-                  <a href="" class="btn btn-primary">Clique para saber mais</a>
+                <img src="https://img.imageboss.me/revista-cdn/cdn/36518/3ac6a7888bbaee7e5ea91f8ebbda079e71854e29.jpg?1630619848" class="card-img-top" alt="Lançamento de Dardo">
+                <div class="card-body"style="padding-right: 20px;">
+                  <h5 class="card-title">Ranking</h5>
+                  <p class="card-text">Clique no botão abaixo e confira o ranking dos melhores competidores de ambas modalidades!</p>
+                  <a href="{% url 'ranking' %}" class="btn btn-primary">Clique para saber mais</a>
+                </div>
             </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-
-    <script src="{% static 'js/scripts.js' %}"></script>
 </body>
 </html>
