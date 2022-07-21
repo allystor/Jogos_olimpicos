@@ -22,4 +22,5 @@ def criar_competicao(request):
 
 def ranking(request):
     context = Competicao.objects.all()
-    return render(request, 'ranking.html', {'context':context})
+    ordenar = context.order_by('tempo_de_chegada_na_primeira_prova')
+    return render(request, 'ranking.html', {'ordenar':ordenar})
