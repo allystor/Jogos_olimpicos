@@ -1,19 +1,18 @@
 html > body {
-    background-color:rgba(33, 190, 183, 0.5);
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'franklin', sans-serif;
     font-size: 14px;
     color: #333;
     line-height: 1.42857143;
     padding: 0;
     margin: 0;
+    background-color: #d8c9c9;
 }
 body > .container {
-    padding: 0;
+    padding: 20px;
     margin-top: 30px;
     margin-bottom: 30px;
-    width: 100%;
+    width: 40%;
     height: 100%;
-    border: 2px solid black;
     border-radius: 5px;
     background-color: white;
     box-shadow: #333 0px 0px 10px;
@@ -23,6 +22,6 @@ body > .container {
 }
 .container h1 {
     text-align: center;
-    color: white;
-    background-color: black;
+    padding-bottom: 5px;
+    font-weight: 800;
 }

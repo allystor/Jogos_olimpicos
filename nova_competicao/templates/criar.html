@@ -1,4 +1,4 @@
-{% load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,18 +17,59 @@
                 <div class="form-group col-md-11 control-label">
                 <form action="." method="POST">
                     {% csrf_token %}
-                    <fieldset>
-                        <div class="form-row">
-                            {{ form.as_p }}
-                        </div>
-                    </fieldset>
-                    <input type="submit" value="Salvar" class="btn btn-primary">
-                    <a href="{% url 'ranking'%}" class="btn btn-primary">Vizualizar tabela da competição</a>
+                    <div class="mb-3">
+                        <label for="id_local_da_competicao" class="form-label">Local da competição:</label>
+                        <select name="local_da_competicao" required id="id_local_da_competicao" class="form-control">
+                            <option value="" selected>---------</option>
+                            <option value="Arena Corinthians">Arena Corinthians</option>
+                            <option value="Arena Corinthians">Maracanã</option>                        
+                        </select>                          
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_data" class="form-label">Data:</label>
+                        <input type="text" name="data" required id="id_data" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_hora" class="form-label">Hora:</label>
+                        <input type="text" name="hora" value="00:00:00" required id="id_hora" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_nome_do_atleta" class="form-label">Nome do atleta:</label>
+                        <input type="text" name="nome_do_atleta" maxlength="100" required id="id_nome_do_atleta" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_idade_do_atleta" class="form-label">Idade do atleta:</label>
+                        <input type="number" name="idade_do_atleta" required id="id_idade_do_atleta" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_peso_do_atleta" class="form-label">Peso do atleta:</label>
+                        <input type="number" name="peso_do_atleta" step="any" required id="id_peso_do_atleta" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_altura_do_atleta" class="form-label">Altura do atleta:</label>
+                        <input type="number" name="altura_do_atleta" step="any" required id="id_altura_do_atleta" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_tempo_de_chegada_na_primeira_prova" class="form-label">Tempo de chegada na primeira prova:</label>
+                        <input class="form-control" type="number" name="tempo_de_chegada_na_primeira_prova" step="any" required id="id_tempo_de_chegada_na_primeira_prova">
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_metros_de_distancia" class="form-label">Metros de distancia:</label>
+                        <input type="number" name="metros_de_distancia" required id="id_metros_de_distancia" class="form-control">
+                    </div>
+                    <input type="submit" value="Salvar" class="btn btn-primary" class="form-label">
+                    <a href="{% url 'ranking'%}" class="btn btn-primary">Visualizar tabela da competição</a>
                 </form>
                 </div>
             </div>
         </div>
     </div>
+    <footer class="bg-light text-center">
+        <div class="text-center p-3" style="background-color: white;">
+          © 2022 Copyright:
+          <a class="text-dark" href="https://github.com/allystor">Alvaro Veiga - Developer</a>
+        </div>
+    </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
